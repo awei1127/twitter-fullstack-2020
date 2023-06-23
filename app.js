@@ -24,7 +24,7 @@ app.set('view engine', 'hbs')
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
 app.use(methodOverride('_method'))
-app.use('/upload', express.static(path.join(__dirname, 'upload')))
+// app.use('/upload', express.static(path.join(__dirname, 'upload')))
 app.use(session({
   secret: process.env.SESSION_SECRET || 'ThisMySecret',
   resave: false,
