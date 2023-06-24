@@ -12,6 +12,7 @@ const methodOverride = require('method-override')
 const passport = require('./config/passport')
 const helpers = require('./_helpers')
 const routes = require('./routes')
+const redisStore = require('./config/redis')
 const app = express()
 const port = process.env.PORT || 3000
 
@@ -26,6 +27,7 @@ app.use(express.json())
 app.use(methodOverride('_method'))
 // app.use('/upload', express.static(path.join(__dirname, 'upload')))
 app.use(session({
+  store: redisStore,
   secret: process.env.SESSION_SECRET || 'ThisMySecret',
   resave: false,
   saveUninitialized: false
